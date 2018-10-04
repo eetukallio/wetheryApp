@@ -9,11 +9,15 @@
 import Foundation
 
 class WeatherModel {
-    var dataLoaded = false;
-    var id: Int!
-    var main: String!
-    var description: String!
-    var icon: String!
+    var dataLoaded = false
+    var apiUrl = "http://api.openweathermap.org/data/2.5/weather?lat=35&lon=139"
+    var response: Dictionary<String, Any>!
+    
+    init(lon: Double, lat: Double) {
+        self.apiUrl = String.init(format: "http://api.openweathermap.org/data/2.5/weather?lat=%i&lon=%i&APPID=cb62f472cb1c6e146b655bae93ba2b26", Int(lat), Int(lon))
+        print(apiUrl)
+        fetchUrl(url: self.apiUrl)
+    }
     
     
     func fetchUrl(url : String) {
@@ -31,12 +35,26 @@ class WeatherModel {
     
     
     func doneFetching(data: Data?, response: URLResponse?, error: Error?) {
+        print(data!.description)
         let resstr = String(data: data!, encoding: String.Encoding.utf8)
         
         // Execute stuff in UI thread
         DispatchQueue.main.async(execute: {() in
             self.dataLoaded = true;
+            self.response = self.convertToDictionary(text: resstr!)
             NSLog(resstr!)
         })
+        
+    }
+    
+    func convertToDictionary(text: String) -> [String: Any]? {
+        if let data = text.data(using: .utf8) {
+            do {
+                return try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+        return nil
     }
 }
