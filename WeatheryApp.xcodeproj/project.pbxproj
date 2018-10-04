@@ -13,6 +13,8 @@
 		3158F3C7216603D60080A77F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3158F3C5216603D60080A77F /* Main.storyboard */; };
 		3158F3C9216603DB0080A77F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3158F3C8216603DB0080A77F /* Assets.xcassets */; };
 		3158F3CC216603DB0080A77F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3158F3CA216603DB0080A77F /* LaunchScreen.storyboard */; };
+		3158F3D4216604E20080A77F /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3158F3D3216604E20080A77F /* ThirdViewController.swift */; };
+		3158F3D6216607120080A77F /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3158F3D5216607120080A77F /* WeatherModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		3158F3C8216603DB0080A77F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3158F3CB216603DB0080A77F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3158F3CD216603DB0080A77F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3158F3D3216604E20080A77F /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
+		3158F3D5216607120080A77F /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,10 +63,12 @@
 				3158F3BF216603D60080A77F /* AppDelegate.swift */,
 				3158F3C1216603D60080A77F /* FirstViewController.swift */,
 				3158F3C3216603D60080A77F /* SecondViewController.swift */,
+				3158F3D3216604E20080A77F /* ThirdViewController.swift */,
 				3158F3C5216603D60080A77F /* Main.storyboard */,
 				3158F3C8216603DB0080A77F /* Assets.xcassets */,
 				3158F3CA216603DB0080A77F /* LaunchScreen.storyboard */,
 				3158F3CD216603DB0080A77F /* Info.plist */,
+				3158F3D5216607120080A77F /* WeatherModel.swift */,
 			);
 			path = WeatheryApp;
 			sourceTree = "<group>";
@@ -140,6 +146,8 @@
 			files = (
 				3158F3C4216603D60080A77F /* SecondViewController.swift in Sources */,
 				3158F3C0216603D60080A77F /* AppDelegate.swift in Sources */,
+				3158F3D6216607120080A77F /* WeatherModel.swift in Sources */,
+				3158F3D4216604E20080A77F /* ThirdViewController.swift in Sources */,
 				3158F3C2216603D60080A77F /* FirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
