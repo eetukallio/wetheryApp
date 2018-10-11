@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		31538117216EC4C500DC4F3A /* ForecastTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31538116216EC4C500DC4F3A /* ForecastTableViewCell.swift */; };
 		3158F3C0216603D60080A77F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3158F3BF216603D60080A77F /* AppDelegate.swift */; };
 		3158F3C2216603D60080A77F /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3158F3C1216603D60080A77F /* FirstViewController.swift */; };
 		3158F3C4216603D60080A77F /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3158F3C3216603D60080A77F /* SecondViewController.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		31538116216EC4C500DC4F3A /* ForecastTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ForecastTableViewCell.swift; path = ../ForecastTableViewCell.swift; sourceTree = "<group>"; };
 		3158F3BC216603D60080A77F /* WeatheryApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatheryApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3158F3BF216603D60080A77F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3158F3C1216603D60080A77F /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				3158F3BF216603D60080A77F /* AppDelegate.swift */,
+				31538116216EC4C500DC4F3A /* ForecastTableViewCell.swift */,
 				3158F3C1216603D60080A77F /* FirstViewController.swift */,
 				3158F3C3216603D60080A77F /* SecondViewController.swift */,
 				3158F3D3216604E20080A77F /* ThirdViewController.swift */,
@@ -144,6 +147,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31538117216EC4C500DC4F3A /* ForecastTableViewCell.swift in Sources */,
 				3158F3C4216603D60080A77F /* SecondViewController.swift in Sources */,
 				3158F3C0216603D60080A77F /* AppDelegate.swift in Sources */,
 				3158F3D6216607120080A77F /* WeatherModel.swift in Sources */,

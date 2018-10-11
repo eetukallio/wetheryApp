@@ -7,15 +7,28 @@
 //
 
 import Foundation
+import UIKit
 
 class WeatherModel {
     var dataLoaded = false
-    var apiUrl = "http://api.openweathermap.org/data/2.5/weather?lat=35&lon=139"
+    var apiUrl = "https://api.openweathermap.org/data/2.5/weather?lat=35&lon=139&units=metric"
     var response: Dictionary<String, Any>!
+    var city: String!
+    var degrees: Double!
+    var weatherType: String!
+    var activityIndicator: UIActivityIndicatorView!
+    var cityLabel: UILabel!
+    var currentDegreesLabel: UILabel!
     
-    init(lon: Double, lat: Double) {
-        self.apiUrl = String.init(format: "http://api.openweathermap.org/data/2.5/weather?lat=%i&lon=%i&APPID=cb62f472cb1c6e146b655bae93ba2b26", Int(lat), Int(lon))
+    init(lon: Double, lat: Double, indicator: UIActivityIndicatorView, currentDegreesLabel: UILabel, cityLabel: UILabel ) {
+        print("Init weather")
+        print(lon)
+        print(lat)
+        self.apiUrl = String.init(format: "https://api.openweathermap.org/data/2.5/weather?lat=%f&lon=%f&APPID=cb62f472cb1c6e146b655bae93ba2b26&units=metric", lat, lon)
         print(apiUrl)
+        activityIndicator = indicator
+        self.cityLabel = cityLabel
+        self.currentDegreesLabel = currentDegreesLabel
         fetchUrl(url: self.apiUrl)
     }
     
@@ -40,9 +53,17 @@ class WeatherModel {
         
         // Execute stuff in UI thread
         DispatchQueue.main.async(execute: {() in
-            self.dataLoaded = true;
             self.response = self.convertToDictionary(text: resstr!)
             NSLog(resstr!)
+            self.city = self.response["name"] as? String;
+            var responseMain: Dictionary<String, Any> = self.response["main"] as! Dictionary<String, Any>
+            self.degrees = responseMain["temp"] as? Double;
+            self.dataLoaded = true;
+            print(self.city)
+            print(self.degrees)
+            self.activityIndicator.stopAnimating()
+            self.currentDegreesLabel.text = String(format: "%i C", Int(self.degrees))
+            self.cityLabel.text = self.city
         })
         
     }
