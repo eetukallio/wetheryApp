@@ -30,16 +30,23 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="NPq-21-Bd0">
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="NPq-21-Bd0">
                                 <rect key="frame" x="177" y="380" width="20" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m1U-PG-Bxq">
+                                <rect key="frame" x="137" y="432" width="111" height="76"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="laY-ov-ne1" firstAttribute="centerY" secondItem="PQr-Ze-W5v" secondAttribute="centerY" id="1bU-uC-YcL"/>
+                            <constraint firstItem="m1U-PG-Bxq" firstAttribute="centerX" secondItem="PQr-Ze-W5v" secondAttribute="centerX" id="2lD-MJ-WIb"/>
                             <constraint firstItem="laY-ov-ne1" firstAttribute="centerX" secondItem="PQr-Ze-W5v" secondAttribute="centerX" id="2sv-Dc-eJS"/>
+                            <constraint firstItem="m1U-PG-Bxq" firstAttribute="centerX" secondItem="PQr-Ze-W5v" secondAttribute="centerX" id="GEr-cm-zv0"/>
+                            <constraint firstItem="m1U-PG-Bxq" firstAttribute="top" secondItem="NPq-21-Bd0" secondAttribute="bottom" constant="8" id="IUt-4s-RBR"/>
+                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="bottom" secondItem="m1U-PG-Bxq" secondAttribute="bottom" constant="82" id="OW9-4d-cOO"/>
                             <constraint firstItem="KQZ-1w-vlD" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" constant="50" id="btg-Pv-oVT"/>
+                            <constraint firstItem="m1U-PG-Bxq" firstAttribute="centerX" secondItem="PQr-Ze-W5v" secondAttribute="centerX" id="eOw-fa-C5V"/>
                             <constraint firstItem="KQZ-1w-vlD" firstAttribute="centerX" secondItem="PQr-Ze-W5v" secondAttribute="centerX" id="gZo-os-w26"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
@@ -49,6 +56,7 @@
                         <outlet property="activityIndicator" destination="NPq-21-Bd0" id="xiw-hk-7nX"/>
                         <outlet property="cityLabel" destination="KQZ-1w-vlD" id="2vQ-NU-2id"/>
                         <outlet property="currentDegreesLabel" destination="laY-ov-ne1" id="wUJ-Um-1qH"/>
+                        <outlet property="weatherIconImageView" destination="m1U-PG-Bxq" id="JAB-cp-5CR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
@@ -95,11 +103,16 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jz4-1h-Tgc">
+                                                    <rect key="frame" x="268" y="0.0" width="55" height="46"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="dayLabel" destination="2yz-cY-Cw1" id="2dW-qc-ZCc"/>
                                             <outlet property="degreesLabel" destination="SfJ-0o-w7C" id="gia-wq-NQ7"/>
+                                            <outlet property="iconImageView" destination="Jz4-1h-Tgc" id="Nc2-4m-wMG"/>
                                             <outlet property="typeLabel" destination="OKk-fS-uhY" id="vwO-Ze-aOX"/>
                                         </connections>
                                     </tableViewCell>
@@ -115,7 +128,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Forecast" image="second" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="Forecast" id="cPa-gy-q4n"/>
                     <connections>
                         <outlet property="tableView" destination="bpe-WF-JcC" id="g2h-v0-JoA"/>
                     </connections>
@@ -134,7 +147,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="pjG-sZ-DPc"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="City" id="cII-49-gCw"/>
+                    <tabBarItem key="tabBarItem" title="City" image="second" id="cII-49-gCw"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ACn-oq-ZP2" userLabel="First Responder" sceneMemberID="firstResponder"/>

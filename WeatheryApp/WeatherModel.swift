@@ -19,8 +19,9 @@ class WeatherModel {
     var activityIndicator: UIActivityIndicatorView!
     var cityLabel: UILabel!
     var currentDegreesLabel: UILabel!
+    var weatherIconImageView: UIImageView!
     
-    init(lon: Double, lat: Double, indicator: UIActivityIndicatorView, currentDegreesLabel: UILabel, cityLabel: UILabel ) {
+    init(lon: Double, lat: Double, indicator: UIActivityIndicatorView, currentDegreesLabel: UILabel, cityLabel: UILabel , weatherIconImageView: UIImageView) {
         print("Init weather")
         print(lon)
         print(lat)
@@ -29,6 +30,7 @@ class WeatherModel {
         activityIndicator = indicator
         self.cityLabel = cityLabel
         self.currentDegreesLabel = currentDegreesLabel
+        self.weatherIconImageView = weatherIconImageView
         fetchUrl(url: self.apiUrl)
     }
     
@@ -57,6 +59,7 @@ class WeatherModel {
             NSLog(resstr!)
             self.city = self.response["name"] as? String;
             var responseMain: Dictionary<String, Any> = self.response["main"] as! Dictionary<String, Any>
+            var responseWeather: [Dictionary<String, Any>] = self.response["weather"] as! [Dictionary<String, Any>]
             self.degrees = responseMain["temp"] as? Double;
             self.dataLoaded = true;
             print(self.city)
@@ -64,6 +67,19 @@ class WeatherModel {
             self.activityIndicator.stopAnimating()
             self.currentDegreesLabel.text = String(format: "%i C", Int(self.degrees))
             self.cityLabel.text = self.city
+            
+            let icon = responseWeather[0]["icon"] as! String
+            let url = URL(string: String(format: "https://openweathermap.org/img/w/%@.png", icon))
+            print(url!)
+            DispatchQueue.global().async {
+                let data = try? Data(contentsOf: url!)
+                if let image = data {
+                    DispatchQueue.main.async {
+                        self.weatherIconImageView.image = UIImage(data: image)
+                    }
+                }
+                
+            }
         })
         
     }

@@ -120,7 +120,18 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, UITable
         let main = forecast["main"] as! Dictionary<String, Any>
         let degrees = main["temp"] as! Double
         cell.degreesLabel.text = String(format: "%i C", Int(degrees))
-        
+        let icon = weather[0]["icon"] as! String
+        let url = URL(string: String(format: "https://openweathermap.org/img/w/%@.png", icon))
+        print(url!)
+        DispatchQueue.global().async {
+            let data = try? Data(contentsOf: url!)
+            if let image = data {
+                DispatchQueue.main.async {
+                    cell.iconImageView.image = UIImage(data: image)
+                }
+            }
+            
+        }
         
         return cell;
     }

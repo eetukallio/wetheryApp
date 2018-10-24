@@ -18,6 +18,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var currentDegreesLabel: UILabel!
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var weatherIconImageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +44,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate {
     
     func getWeatherData() -> Void {
         self.activityIndicator.startAnimating()
-        self.weather = WeatherModel(lon: self.location["longitude"]!, lat: self.location["latitude"]!, indicator: activityIndicator, currentDegreesLabel: currentDegreesLabel, cityLabel: cityLabel)
+        self.weather = WeatherModel(lon: self.location["longitude"]!, lat: self.location["latitude"]!, indicator: activityIndicator, currentDegreesLabel: currentDegreesLabel, cityLabel: cityLabel, weatherIconImageView: weatherIconImageView)
        
       
         self.activityIndicator.stopAnimating()
